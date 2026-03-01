@@ -5,8 +5,10 @@ project(GuitarFX VERSION 0.1.0)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-if (NOT DEFINED JUCE_DIR)
-    set(JUCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/JUCE")
+set(JUCE_DIR "D:/dev/JUCE" CACHE PATH "Path to JUCE checkout")
+
+if (NOT EXISTS "${JUCE_DIR}/CMakeLists.txt")
+    message(FATAL_ERROR "JUCE_DIR must point to a JUCE checkout. Current value: ${JUCE_DIR}")
 endif()
 
 add_subdirectory(${JUCE_DIR} JUCE)
