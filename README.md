@@ -97,15 +97,21 @@ So checking `Delay` disables delay processing.
 - Windows 11
 - Visual Studio 2022 Build Tools (C++ workload)
 - CMake
-- JUCE checked out locally (example: `D:\dev\JUCE`)
+- JUCE checked out locally at `D:\dev\JUCE` by default
 
 ## Configure and Build
 
 From project root (`D:\dev\GuitarFX`):
 
 ```powershell
-cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DJUCE_DIR=D:\dev\JUCE
+cmake -S . -B build -G "Visual Studio 17 2022" -A x64
 cmake --build build --config Release
+```
+
+If JUCE is installed somewhere else, override the default path:
+
+```powershell
+cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DJUCE_DIR=E:\path\to\JUCE
 ```
 
 Built plugin path:
